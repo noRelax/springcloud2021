@@ -1,0 +1,11 @@
+target/
+.gradle/
+build/
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+log_path_IS_UNDEFINED
+.DS_Store
