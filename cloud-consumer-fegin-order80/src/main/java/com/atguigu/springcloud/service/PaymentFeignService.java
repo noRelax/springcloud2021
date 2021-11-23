@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @create 2021-11-07 3:35 下午
  **/
 @Component
-@FeignClient("cloud-payment-service")
+//@FeignClient("cloud-payment-service")
+@FeignClient(name = "paymentFeignService", url = "${sc.host}", fallback = PaymentFallbackService.class)
 public interface PaymentFeignService {
     /**
      * 远程调用的接口方法：
@@ -26,6 +27,9 @@ public interface PaymentFeignService {
     CommonResult getQQId();
 
     @GetMapping("/payment/get_payment")
-    CommonResult getById(@RequestParam("id")Long id);
+    CommonResult getById(@RequestParam("id") Long id);
+
+    @GetMapping("/openapi/sc_notify")
+    Object scNotify(@RequestParam("tableName") String tableName, @RequestParam("id") String id, @RequestParam("token") String token);
 
 }

@@ -5,6 +5,7 @@ import com.atguigu.springcloud.service.PaymentFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,6 +26,11 @@ public class OrderFeignController {
     @GetMapping("/getByQQId")
     public CommonResult getByQQId() {
         return paymentFeignService.getQQId();
+    }
+
+    @GetMapping("/sc_notify")
+    public Object scNotify(@RequestParam("tableName") String tableName, @RequestParam("id") String id, @RequestParam("token") String token) {
+        return paymentFeignService.scNotify(tableName, id, token);
     }
 
 }
