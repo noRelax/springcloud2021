@@ -13,7 +13,7 @@ public class PaymentFallbackService implements PaymentFeignService {
 
     @Override
     public CommonResult getPayment(Long id) {
-        return null;
+        return new CommonResult(500, "接口处理失败！");
     }
 
     @Override
