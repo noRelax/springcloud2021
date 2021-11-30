@@ -10,6 +10,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentFallbackService implements PaymentFeignService {
+
+    @Override
+    public CommonResult getPayment(Long id) {
+        return null;
+    }
+
     @Override
     public CommonResult getQQId() {
         return null;

@@ -23,6 +23,10 @@ public interface PaymentFeignService {
      * @return
      * @RequestParam @PathVariable @RequestBody @RequestParam  不能省略，两边一致
      */
+
+    @GetMapping("/payment/get_payment")
+    CommonResult getPayment(@RequestParam("id") Long id);
+
     @GetMapping("/payment/getQQId")
     CommonResult getQQId();
 

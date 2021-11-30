@@ -18,6 +18,11 @@ public class OrderFeignController {
     @Autowired
     private PaymentFeignService paymentFeignService;
 
+    @GetMapping("/get_payment")
+    public CommonResult getPayment() {
+        return paymentFeignService.getPayment(1L);
+    }
+
     @GetMapping("/getById")
     public CommonResult getById() {
         return paymentFeignService.getById(1L);
