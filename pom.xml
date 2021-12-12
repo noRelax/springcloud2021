@@ -119,6 +119,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <!-- 发布到那个仓库，id对应maven中server下的id做验证-->
+        <snapshotRepository>
+            <id>Snapshot-ws</id>
+            <url>http://localhost:8081/repository/Snapshot-local/</url>
+        </snapshotRepository>
+        <repository>
+            <id>Release-ws</id>
+            <url>http://localhost:8081/repository/Releases-local/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
