@@ -54,6 +54,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>zbjt.comment</groupId>
+            <artifactId>comment-sdk</artifactId>
+            <version>1.1.13-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
