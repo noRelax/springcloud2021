@@ -32,5 +32,18 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>cloud-consumer-fegin-order80</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${basedir}/../target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

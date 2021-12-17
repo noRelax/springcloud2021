@@ -50,4 +50,17 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>cloudalibaba-config-nacos-client3377</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${basedir}/../target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
