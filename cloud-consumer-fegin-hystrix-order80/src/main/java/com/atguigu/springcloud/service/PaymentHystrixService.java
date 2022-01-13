@@ -1,6 +1,5 @@
 package com.atguigu.springcloud.service;
 
-import io.swagger.models.auth.In;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
