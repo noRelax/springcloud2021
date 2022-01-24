@@ -1,0 +1,13 @@
+#项目对外提供的端口号
+server:
+  port: 8003
+
+#服务别名，注册到zookeeper的注册中心的名称
+spring:
+  application:
+    name: cloud-provider-zookeeper-payment8003
+  cloud:
+    zookeeper:
+      connect-string: 120.24.162.8:2181
+  profiles:
+    include: common
