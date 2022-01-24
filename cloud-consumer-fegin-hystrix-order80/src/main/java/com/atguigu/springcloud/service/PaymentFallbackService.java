@@ -14,4 +14,9 @@ public class PaymentFallbackService implements PaymentHystrixService {
     public String paymentHystrixOk(Integer id) {
         return "-------PaymentFallbackService fall back-[paymentInfo_OK],o(╥﹏╥)o";
     }
+
+    @Override
+    public String paymentTimeOut(Integer id) {
+        return "-------PaymentFallbackService fall back request time out";
+    }
 }
