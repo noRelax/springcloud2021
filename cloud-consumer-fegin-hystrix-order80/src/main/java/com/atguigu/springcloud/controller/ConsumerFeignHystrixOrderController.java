@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.service.PaymentHystrixService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/consumer")
 @Slf4j
-public class ConsumerFeignHystrixOrderController {
+@DefaultProperties(defaultFallback = "globalFallbackMethod")
+public class ConsumerFeignHystrixOrderController extends AbstractFallback {
     @Autowired
     private PaymentHystrixService paymentHystrixService;
 
     @GetMapping("/payment/hystrix/ok")
+    @HystrixCommand
     public String paymentHystrixOk(@RequestParam("id") Integer id) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         String result = paymentHystrixService.paymentHystrixOk(id);
         log.info("paymentHystrixOk 请求ID:{},结果:{}", id, result);
         return result;
