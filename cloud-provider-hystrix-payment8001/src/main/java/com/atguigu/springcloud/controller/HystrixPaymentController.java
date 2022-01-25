@@ -23,14 +23,14 @@ public class HystrixPaymentController {
     @GetMapping("/hystrix/ok/{id}")
     public String paymentInfo_ok(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfo_OK(id);
-        log.info("请求参数:{}结果:{}", id, result);
+        log.info("paymentInfo_ok请求参数:{}结果:{}", id, result);
         return result;
     }
 
     @GetMapping("/hystrix/timeout/{id}")
     public String timeOut(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfo_TimeOut(id);
-        log.info("请求参数:{}结果:{}", id, result);
+        log.info("timeOut请求参数:{}结果:{}", id, result);
         return result;
     }
 

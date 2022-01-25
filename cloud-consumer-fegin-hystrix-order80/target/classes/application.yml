@@ -1,9 +1,11 @@
 server:
-  port: 80
+  port: 8088
 
 spring:
   application:
     name: consumer-feign-hystrix-order80
+  profiles:
+    include: common
 
 eureka:
   client:

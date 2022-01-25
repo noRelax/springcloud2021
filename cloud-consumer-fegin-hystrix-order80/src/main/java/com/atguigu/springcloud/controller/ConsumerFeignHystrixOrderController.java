@@ -22,7 +22,15 @@ public class ConsumerFeignHystrixOrderController {
     @GetMapping("/payment/hystrix/ok")
     public String paymentHystrixOk(@RequestParam("id") Integer id) {
         String result = paymentHystrixService.paymentHystrixOk(id);
-        log.info("请求ID:{},结果:{}", id, result);
+        log.info("paymentHystrixOk 请求ID:{},结果:{}", id, result);
+        return result;
+
+    }
+
+    @GetMapping("/payment/hystrix/timeOut")
+    public String paymentHystrixTimeOut(@RequestParam("id") Integer id) {
+        String result = paymentHystrixService.paymentTimeOut(id);
+        log.info("paymentHystrixTimeOut 请求ID:{},结果:{}", id, result);
         return result;
 
     }
