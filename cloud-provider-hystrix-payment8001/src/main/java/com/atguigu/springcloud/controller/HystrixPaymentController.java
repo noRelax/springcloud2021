@@ -1,6 +1,5 @@
 package com.atguigu.springcloud.controller;
 
-import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,19 @@ public class HystrixPaymentController {
     public String timeOut(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfo_TimeOut(id);
         log.info("timeOut请求参数:{}结果:{}", id, result);
+        return result;
+    }
+
+    /**
+     * 服务熔断
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("------------result: " + result);
         return result;
     }
 

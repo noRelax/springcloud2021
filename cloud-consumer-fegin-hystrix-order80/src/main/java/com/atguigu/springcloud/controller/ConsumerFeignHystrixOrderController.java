@@ -40,6 +40,7 @@ public class ConsumerFeignHystrixOrderController extends AbstractFallback {
 
     @GetMapping("/payment/hystrix/timeOut")
     @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod", commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")})
     public String paymentHystrixTimeOut(@RequestParam("id") Integer id) {
         try {
