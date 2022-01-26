@@ -46,4 +46,16 @@ public class HystrixPaymentController {
         return result;
     }
 
+    /**
+     * 获取redis总数
+     *
+     * @return
+     */
+    @GetMapping("/payment/circuit/count")
+    public String count() {
+        String count = paymentService.getCount();
+        log.info("------------result: " + count);
+        return count;
+    }
+
 }
