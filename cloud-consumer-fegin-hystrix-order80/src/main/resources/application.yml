@@ -6,13 +6,18 @@ spring:
     name: consumer-feign-hystrix-order80
   profiles:
     include: common
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: true
     service-url:
-      defaultZone:  http://eureka7001.com:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
 feign:
   hystrix:
     enabled: true
