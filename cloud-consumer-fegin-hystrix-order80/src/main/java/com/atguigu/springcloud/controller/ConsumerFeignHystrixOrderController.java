@@ -27,11 +27,11 @@ public class ConsumerFeignHystrixOrderController extends AbstractFallback {
     @GetMapping("/payment/hystrix/ok")
     @HystrixCommand
     public String paymentHystrixOk(@RequestParam("id") Integer id) {
-        try {
+        /*try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         String result = paymentHystrixService.paymentHystrixOk(id);
         log.info("paymentHystrixOk 请求ID:{},结果:{}", id, result);
         return result;
@@ -43,12 +43,6 @@ public class ConsumerFeignHystrixOrderController extends AbstractFallback {
             @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")})
     public String paymentHystrixTimeOut(@RequestParam("id") Integer id) {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         String result = paymentHystrixService.paymentTimeOut(id);
         log.info("paymentHystrixTimeOut 请求ID:{},结果:{}", id, result);
         return result;
