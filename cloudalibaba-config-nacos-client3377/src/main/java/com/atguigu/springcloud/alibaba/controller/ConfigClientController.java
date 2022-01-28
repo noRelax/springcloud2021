@@ -27,7 +27,7 @@ public class ConfigClientController {
 
     @GetMapping("/config/info")
     public String getConfigInfo() {
-        log.info(">>>>>>>" + jedis.get("name"));
+        //log.info(">>>>>>>" + jedis.get("name"));
         return configInfo;
     }
 }
