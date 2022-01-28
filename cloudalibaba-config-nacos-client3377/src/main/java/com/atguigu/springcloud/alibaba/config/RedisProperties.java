@@ -1,11 +1,8 @@
 package com.atguigu.springcloud.alibaba.config;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -16,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @Data
-@RefreshScope
+@ConfigurationProperties(prefix = "redis")
 public class RedisProperties {
-    @Value("${redis.host}")
+    //@Value("${redis.host}")
     private String host;
-    @Value("${redis.port}")
+    //@Value("${redis.port}")
     private Integer port;
     /*@Value("${redis.name}")
     private String name;

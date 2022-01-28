@@ -3,12 +3,10 @@ package com.atguigu.springcloud.alibaba.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cglib.proxy.Enhancer;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.util.Pool;
 
 /**
@@ -16,7 +14,7 @@ import redis.clients.jedis.util.Pool;
  * @create 2022-01-27 20:39
  **/
 @Configuration
-@RefreshScope
+@EnableConfigurationProperties(RedisProperties.class)
 public class RedisConfig {
     @Bean
     public Pool<Jedis> jedisPool(@Autowired RedisProperties redisProperties) {
